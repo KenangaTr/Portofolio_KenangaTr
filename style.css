@@ -1,0 +1,332 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #e6e6e6;
+}
+
+/* ================= NAVBAR ================= */
+
+nav a.active {
+    border-bottom: 2px solid white;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    background: #5c7c94;
+    padding: 10px 50px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 1000;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    opacity: 0.7;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: bold;
+}
+
+nav {
+    height: 60px;
+}
+
+.logo img {
+    height: 100px;     /* tinggi logo */
+    width: auto;      /* biar proporsional */
+    display: block;
+}
+
+/* ================= HOME ================= */
+
+.home {
+    background: #243a4d;
+    color: white;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* dekorasi titik */
+
+.home::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #6ec1e4 3px, transparent 4px);
+    background-size: 30px 30px;
+    border-radius: 50%;
+    left: 50px;
+    top: 100px;
+    opacity: 0.5;
+}
+
+.profile {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 8px solid #5c7c94;
+    flex-shrink: 0;
+    z-index: 1;
+}
+
+.profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content {
+    margin-left: 50px;
+    max-width: 700px;
+    z-index: 1;
+}
+
+.content h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.content span {
+    font-size: 20px;
+    opacity: 0.8;
+}
+
+.content p {
+    margin-top: 20px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* ================= PROJEK SECTION ================= */
+
+.projek-section {
+    background: #1c2f40;
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.projek-item {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    color: white;
+}
+
+.projek-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.h1{
+    background-color:#5c7c94;
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.projek-images {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.projek-images img {
+    width: 340px;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.3s;
+}
+
+.projek-images img:hover {
+    transform: scale(1.05);
+}
+
+.projek-text {
+    max-width: 520px;
+}
+
+.projek-text h2 {
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.projek-text p {
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* ================= SKILL SECTION ================= */
+
+.skill-section {
+    background: #243a4d;
+    padding: 80px 60px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.skill-item ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.skill-item ul li {
+    background: #5c7c94;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.skill-bar {
+    margin-top: 30px;
+}
+
+.skill-level {
+    height: 25px;
+    border-radius: 5px;
+    background: #5c7c94;
+}
+
+/* ================= ABOUT ================= */
+
+.about {
+    background: #1c2f40;
+    padding: 80px 60px;
+    color: white;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+
+.about p {
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ================= HELP BUTTON ================= */
+
+.help-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 3px solid #d8cfc2;
+    color: #d8cfc2;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 48px;
+    text-decoration: none;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.help-btn:hover {
+    background: #d8cfc2;
+    color: #243a4d;
+    transform: scale(1.1);
+}
+
+/* ================= HELP / CONTACT SECTION ================= */
+
+.help-section {
+    background: #243a4d;
+    padding: 80px 60px;
+    color: #e7dfd3;
+}
+
+.help-section h2 {
+    font-size: 48px;
+    margin-bottom: 40px;
+}
+
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.contact-item {
+    margin: 6px 0;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    background: #5f7f98;
+    padding: 15px 30px;
+    border-radius: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.contact-item:hover {
+    transform: translateX(6px);
+    background: #6e92ad;
+}
+
+.contact-item .icon {
+    font-size: 22px;
+    margin-right: 15px;
+    width: 34px;
+    text-align: center;
+}
+
+.contact-item p {
+    margin: 0;
+    word-break: break-word;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+    .help-section h2 {
+        font-size: 36px;
+    }
+
+    .contact-item {
+        font-size: 14px;
+    }
+}
