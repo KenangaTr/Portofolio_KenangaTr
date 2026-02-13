@@ -1,8 +1,10 @@
+/* ================= GLOBAL RESET ================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth; /* Agar scroll klik menu halus */
 }
 
 body {
@@ -10,35 +12,25 @@ body {
 }
 
 /* ================= NAVBAR ================= */
-
-nav a.active {
-    border-bottom: 2px solid white;
-}
-
 nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-
+    height: 70px;
     background: #5c7c94;
     padding: 10px 50px;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     z-index: 1000;
-}
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 30px;
-    font-weight: bold;
+    transition: all 0.3s ease;
 }
 
-nav a:hover {
-    opacity: 0.7;
+.logo img {
+    height: 100px;
+    width: auto;
+    display: block;
 }
 
 .nav-menu a {
@@ -46,33 +38,29 @@ nav a:hover {
     text-decoration: none;
     margin-left: 30px;
     font-weight: bold;
+    transition: 0.3s;
 }
 
-nav {
-    height: 60px;
-}
-
-.logo img {
-    height: 100px;     /* tinggi logo */
-    width: auto;      /* biar proporsional */
-    display: block;
+.nav-menu a:hover,
+.nav-menu a.active {
+    opacity: 0.7;
+    border-bottom: 2px solid white;
 }
 
 /* ================= HOME ================= */
-
 .home {
     background: #243a4d;
     color: white;
-    min-height: 90vh;
+    min-height: 100vh; /* Menggunakan 100vh agar full layar */
     display: flex;
     align-items: center;
-    padding: 50px;
+    justify-content: center; /* Center content */
+    padding: 100px 50px 50px 50px; /* Top padding lebih besar karena navbar fixed */
     position: relative;
     overflow: hidden;
 }
 
-/* dekorasi titik */
-
+/* Dekorasi titik background */
 .home::before {
     content: "";
     position: absolute;
@@ -84,6 +72,7 @@ nav {
     left: 50px;
     top: 100px;
     opacity: 0.5;
+    z-index: 0;
 }
 
 .profile {
@@ -109,29 +98,39 @@ nav {
 }
 
 .content h1 {
-    font-size: 60px;
-    margin-bottom: 20px;
+    font-size: 50px;
+    margin-bottom: 10px;
 }
 
 .content span {
     font-size: 20px;
     opacity: 0.8;
+    display: block;
+    margin-bottom: 20px;
 }
 
 .content p {
-    margin-top: 20px;
     line-height: 1.6;
     text-align: justify;
 }
 
 /* ================= PROJEK SECTION ================= */
-
 .projek-section {
     background: #1c2f40;
     padding: 80px 60px;
     display: flex;
     flex-direction: column;
-    gap: 80px;
+    gap: 60px;
+}
+
+.h1 {
+    background-color: #5c7c94;
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
 }
 
 .projek-item {
@@ -145,26 +144,13 @@ nav {
     flex-direction: row-reverse;
 }
 
-.h1{
-    background-color:#5c7c94;
-    padding: 15px;
-    border-radius: 10px;
-    color: white;
-    text-align: center;
-    margin-bottom: 40px;
-}
-.projek-images {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
 .projek-images img {
     width: 340px;
     height: 210px;
     object-fit: cover;
     border-radius: 15px;
     transition: transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
 .projek-images img:hover {
@@ -172,12 +158,13 @@ nav {
 }
 
 .projek-text {
-    max-width: 520px;
+    flex: 1; /* Agar teks mengisi sisa ruang */
 }
 
 .projek-text h2 {
-    font-size: 34px;
+    font-size: 28px;
     margin-bottom: 15px;
+    color: #6ec1e4;
 }
 
 .projek-text p {
@@ -186,42 +173,45 @@ nav {
 }
 
 /* ================= SKILL SECTION ================= */
-
 .skill-section {
     background: #243a4d;
     padding: 80px 60px;
     color: white;
+    text-align: center;
+}
+
+.skill-section h2 {
+    margin-bottom: 40px;
+    font-size: 32px;
+}
+
+.skill-container {
     display: flex;
-    flex-direction: column;
-    gap: 50px;
+    justify-content: center;
 }
 
 .skill-item ul {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
 }
 
 .skill-item ul li {
     background: #5c7c94;
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 12px 20px;
+    border-radius: 30px;
     font-weight: bold;
+    transition: 0.3s;
 }
 
-.skill-bar {
-    margin-top: 30px;
-}
-
-.skill-level {
-    height: 25px;
-    border-radius: 5px;
-    background: #5c7c94;
+.skill-item ul li:hover {
+    background: #6ec1e4;
+    color: #1c2f40;
 }
 
 /* ================= ABOUT ================= */
-
 .about {
     background: #1c2f40;
     padding: 80px 60px;
@@ -240,8 +230,51 @@ nav {
     margin: 0 auto;
 }
 
-/* ================= HELP BUTTON ================= */
+/* ================= HELP / CONTACT SECTION ================= */
+.help-section {
+    background: #243a4d;
+    padding: 80px 60px;
+    color: #e7dfd3;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
 
+.help-section h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    background: #5f7f98;
+    padding: 15px 30px;
+    border-radius: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    width: 100%;
+    max-width: 500px; 
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.contact-item:hover {
+    transform: translateX(6px);
+    background: #6e92ad;
+}
+
+.contact-item .icon {
+    width: 24px;
+    margin-right: 15px;
+}
+.contact-item .link {
+    color: #FFFFFF;
+    text-decoration: none;
+
+}
+/* ================= HELP BUTTON (Fixed) ================= */
 .help-btn {
     position: fixed;
     bottom: 25px;
@@ -256,7 +289,7 @@ nav {
     text-align: center;
     line-height: 48px;
     text-decoration: none;
-    background: transparent;
+    background: rgba(36, 58, 77, 0.8); 
     cursor: pointer;
     transition: all 0.3s ease;
     z-index: 999;
@@ -267,66 +300,103 @@ nav {
     color: #243a4d;
     transform: scale(1.1);
 }
-
-/* ================= HELP / CONTACT SECTION ================= */
-
-.help-section {
-    background: #243a4d;
-    padding: 80px 60px;
-    color: #e7dfd3;
-}
-
-.help-section h2 {
-    font-size: 48px;
-    margin-bottom: 40px;
-}
-
-.contact-list {
-    display: flex;
-    flex-direction: column;
-    gap: 36px;
-}
-
-.contact-item {
-    margin: 6px 0;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    background: #5f7f98;
-    padding: 15px 30px;
-    border-radius: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.contact-item:hover {
-    transform: translateX(6px);
-    background: #6e92ad;
-}
-
-.contact-item .icon {
-    font-size: 22px;
-    margin-right: 15px;
-    width: 34px;
-    text-align: center;
-}
-
-.contact-item p {
-    margin: 0;
-    word-break: break-word;
-}
-
-/* ================= RESPONSIVE ================= */
-
+/* ================= RESPONSIVE DESIGN ================= */
 @media (max-width: 768px) {
+    nav {
+        height: auto;
+        flex-direction: column;
+        padding: 15px 20px;
+        gap: 15px;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .nav-menu a {
+        margin-left: 0;
+        font-size: 14px;
+    }
+    .home {
+        flex-direction: column;
+        text-align: center;
+        padding: 140px 20px 50px 20px; 
+    }
+
+    .home::before {
+        display: none; 
+    }
+
+    .profile {
+        width: 200px;
+        height: 200px;
+        border-width: 5px;
+        margin-bottom: 30px;
+    }
+
+    .content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .content h1 {
+        font-size: 32px; 
+    }
+    
+    .content span {
+        font-size: 16px;
+    }
+
+    .content p {
+        font-size: 14px;
+        text-align: center; 
+    }
+
+    .projek-section {
+        padding: 50px 20px;
+    }
+
+    .projek-item, 
+    .projek-item.reverse {
+        flex-direction: column; 
+        gap: 20px;
+        text-align: center;
+    }
+
+    .projek-images img {
+        width: 100%; 
+        height: auto;
+        max-width: 400px;
+    }
+
+    .projek-text p {
+        text-align: center; 
+        font-size: 14px;
+    }
+
+    .skill-section, .about, .help-section {
+        padding: 50px 20px;
+    }
+
+    .skill-item ul li {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    
     .help-section h2 {
-        font-size: 36px;
+        font-size: 28px;
     }
 
     .contact-item {
-        font-size: 14px;
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+    
+    .contact-item .icon {
+        width: 20px;
     }
 }
